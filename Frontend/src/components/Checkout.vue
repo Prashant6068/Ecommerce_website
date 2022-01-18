@@ -7,13 +7,11 @@
           <li class="active">Check out</li>
         </ol>
       </div>
-      <!--/breadcrums-->
-      <!--/register-req-->
 
       <div class="review-payment">
         <h2>Review & Payment</h2>
       </div>
-
+      <!-- checkout -->
       <div class="table-responsive cart_info">
         <table class="table table-condensed">
           <thead>
@@ -34,7 +32,6 @@
                   alt=""
                   width="100px"
                   height="100px"
-                  objectFit="cover"
                 />
               </td>
               <td class="cart_description">
@@ -44,7 +41,9 @@
                 <p>Web ID: {{ cart.product_id }}</p>
               </td>
               <td class="cart_price">
-                <p>{{ cart.price }}</p>
+                <p>
+                  <i class="fa fa-inr" aria-hidden="true"></i>{{ cart.price }}
+                </p>
               </td>
               <td class="cart_quantity">
                 <div class="cart_quantity_button">
@@ -60,6 +59,7 @@
               </td>
               <td class="cart_total">
                 <p class="cart_total_price">
+                  <i class="fa fa-inr" aria-hidden="true"></i>
                   {{ cart.price * cart.quantity }}
                 </p>
               </td>
@@ -71,7 +71,10 @@
                   <tr>
                     <td>Total payment</td>
                     <td>
-                      <span>{{ this.$store.getters.amount }}</span>
+                      <span
+                        ><i class="fa fa-inr" aria-hidden="true"></i
+                        >{{ this.$store.getters.amount }}</span
+                      >
                     </td>
                   </tr>
                 </table>
@@ -80,12 +83,13 @@
           </tbody>
         </table>
       </div>
-      <div class="shopper-informationsContainer">
-        <div class="row informationChildOne">
-          <div class="col-sm-12 clearfix">
+      <div class="shopper-informations">
+        <div class="row">
+          <div class="col-sm-9 clearfix">
             <div class="bill-to">
               <p>Bill To</p>
               <div class="form-one">
+                <!-- form for user address -->
                 <form @submit.prevent="payment()">
                   <input
                     type="email"
@@ -191,25 +195,27 @@
                   >
                     <span class="">*Mobile number is required </span>
                   </div>
-
-                  <div class="form-group">
+                  <br />
+                  <div class="payment-options">
+                    <span>
+                      <label
+                        ><input type="radio" v-model="pay" value="COD" /> Cash
+                        on delivery</label
+                      >
+                    </span>
+                    <span>
+                      <label
+                        ><input type="radio" v-model="pay" value="online" />
+                        Paypal</label
+                      >
+                    </span>
+                    <div v-show="pay == 'online'">
+                      <Paypal />
+                    </div>
+                    <br />
                     <button class="btn btn-primary">Submit</button>
                   </div>
                 </form>
-                <div class="payment-options">
-                  <span>
-                    <label
-                      ><input type="radio" v-model="pay" value="COD" /> Cash on
-                      delivery</label
-                    >
-                  </span>
-                  <span>
-                    <label
-                      ><input type="radio" v-model="pay" value="online" />
-                      Paypal</label
-                    >
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -217,15 +223,16 @@
       </div>
     </div>
   </section>
-  <!--/#cart_items-->
 </template>
 
 <script>
 import { required, email } from "vuelidate/lib/validators";
 import { userOrder } from "@/common/Service.js";
 import { userAddress } from "@/common/Service.js";
+import Paypal from "../components/Paypal.vue";
 export default {
   name: "Checkout",
+  components: { Paypal },
   data() {
     return {
       details: undefined,
@@ -233,6 +240,7 @@ export default {
       email_id: localStorage.getItem("uid"),
       server: "http://127.0.0.1:8000/uploads/",
       pay: "COD",
+
       user: {
         firstName: "",
         lastName: "",
@@ -244,6 +252,7 @@ export default {
       submitted: false,
     };
   },
+  //validations
   validations: {
     user: {
       firstName: { required },
@@ -255,6 +264,7 @@ export default {
     },
   },
   methods: {
+    //payments
     payment() {
       this.submitted = true;
       this.$v.$touch();
@@ -275,6 +285,7 @@ export default {
           };
           userOrder(obj).then((res) => {
             console.log(res.data);
+            this.$swal("Order Placed", "", "success");
           });
         });
         let formData = {
@@ -287,8 +298,8 @@ export default {
         userAddress(formData).then((res) => {
           localStorage.removeItem("mycart");
           this.$router.push("/myorders");
-          this.$swal("Order placed successfully", "", "success");
           console.log(res.data);
+          window.location.reload();
         });
       }
     },
@@ -309,10 +320,7 @@ export default {
 </script>
 
 <style>
-.payment-options {
-  margin-top: 10px;
-}
-.clearfix{
- margin-left: 380px;
+.clearfix {
+  margin-left: 380px;
 }
 </style>

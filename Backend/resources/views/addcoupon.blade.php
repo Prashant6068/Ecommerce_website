@@ -2,21 +2,22 @@
 @section('content')
 
 <style>
-    .container{
-    display: flex;
-    justify-content: center;
-    
-    margin-left: 200px;
-  }
-  form{
-    padding:20px 30px 40px;
-    width: 500px;
-  }
+    .container {
+        display: flex;
+        justify-content: center;
+
+        margin-left: 200px;
+    }
+
+    form {
+        padding: 20px 30px 40px;
+        width: 500px;
+    }
 </style>
 <!-- <div class="content-wrapper"> -->
-    <div>
+<div>
     @if(Session::has('msg'))
-<div class="alert alert-success">{{Session::get('msg')}}</div>
+    <div class="alert alert-success">{{Session::get('msg')}}</div>
 
 
 </div>
@@ -25,7 +26,7 @@
     <form method="POST" action="/coupons" class="border rounded shadow ">
         <h2 class="text-center text-dark">Coupons</h2>
         @csrf()
-      
+
         <div>
             @php
             function unique_code($limit)
@@ -33,7 +34,7 @@
             return substr(base_convert(sha1(uniqid(mt_rand())), 8, 36), 0, $limit);
             }
             @endphp
-             Coupon Code
+            Coupon Code
             <input id="code" type="text" class="form-control text-uppercase " name="code" value="@php echo unique_code(5); @endphp" readonly>
             @if($errors->has('code'))
             <label class="text-danger">{{$errors->first('code')}}</label>

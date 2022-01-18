@@ -195,14 +195,12 @@ export default {
       };
       subscriber(obj).then((res) => {
         this.$swal(res.data.message, "", "success");
-              
+
         console.log(res.data);
       });
-        
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

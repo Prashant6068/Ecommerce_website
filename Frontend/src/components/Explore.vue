@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style>
-.col-md-4{
-    margin-bottom: 50px;
+.col-md-4 {
+  margin-bottom: 50px;
 }
 </style>

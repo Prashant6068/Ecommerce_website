@@ -23,22 +23,19 @@
               >
                 <div class="col-sm-6">
                   <h1><span>E</span>-SHOPPER</h1>
-                  <h2>{{ banner.caption }}</h2>
-                  <!-- <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p> -->
-                  <!-- <button type="button" class="btn btn-default get">
+                  <h4>{{ banner.caption }}</h4>
+
+                  <button type="button" class="btn btn-default get">
                     Shop now!
-                  </button> -->
+                  </button>
                 </div>
                 <div class="col-sm-6">
                   <img
                     :src="server + banner.image_path"
                     class="girl img-responsive"
                     alt=""
-                    width="300px"  height="300px"
+                    width="300px"
+                    height="300px"
                   />
                 </div>
               </div>
@@ -90,4 +87,13 @@ export default {
 </script>
 
 <style>
-</style>
+h2{
+  color:orange;
+}
+h4{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+  </style>

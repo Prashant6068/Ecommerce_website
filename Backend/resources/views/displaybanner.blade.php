@@ -1,24 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <div class="container d-flex justify-content-center mr-5">
    
-            <div class="row  w-75 ">
+            <div class="row w-75 ">
 
                 <div class="col-12  ">
                     <div class="card ">
                         <div class="card-header">
                             
                             <div class="">
-
+@if(Session::has('msg'))
+<div class="alert alert-success">{{Session::get('msg')}}</div>
 
 </div>
 
+@endif
 
-                            <a href="/banners/create" class="btn btn-dark "><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Banner</a>
+                            <a href="/banners/create" class="btn btn-dark btn-left ml-3 "><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Add Banner</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -28,7 +27,7 @@
                                         <th>Sno</th>
                                         <th>Caption</th>
                                         <th>Image</th>
-                                        <th colspan="2">Actions</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

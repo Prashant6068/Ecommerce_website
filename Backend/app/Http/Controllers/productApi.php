@@ -15,9 +15,7 @@ class productApi extends Controller
      */
     public function index()
     {
-        // $product = Product::all();
-        // $images = Product_images::all();
-        // return response()->json(["products" => $product, "images" => $images]);
+
         $list = [];
         $product = Product::all();
         foreach ($product as $prod) {

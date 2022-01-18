@@ -13,31 +13,19 @@
                 v-for="(pro, index) in category"
                 :key="index"
               >
-                <div class="product-image-wrapper ">
+                <div class="product-image-wrapper">
                   <div class="single-products zoomin">
-                    <div class="productinfo text-center
-                    ">
-                          <router-link :to="`/productdetails/${pro.id}`">
-                      <img :src="pro.images[0].image" alt=""  />
-                      
-                      <h2>&#8377;{{ pro.price }}</h2>
-                      <p>{{ pro.name }}</p>
-                      <a href="#" class="btn btn-default add-to-cart"
-                        ><i class="fa fa-shopping-cart"></i>Add to cart</a
-                      >
-                          </router-link>
-                          
-                    </div>
-                     <!-- <div class="product-overlay">
-                      <div class="overlay-content">
-                        
-                        <h2>{{ pro.price }}</h2>
+                    <div class="productinfo text-center">
+                      <router-link :to="`/productdetails/${pro.id}`">
+                        <img :src="pro.images[0].image" alt="" />
+
+                        <h2>&#8377;{{ pro.price }}</h2>
                         <p>{{ pro.name }}</p>
                         <a href="#" class="btn btn-default add-to-cart"
                           ><i class="fa fa-shopping-cart"></i>Add to cart</a
                         >
-                      </div>
-                    </div>  -->
+                      </router-link>
+                    </div>
                   </div>
                   <div class="choose">
                     <ul class="nav nav-pills nav-justified text-center">
@@ -49,7 +37,6 @@
                           <i class="fa fa-plus-square"></i>Add to wishlist
                         </button>
                       </li>
-                     
                     </ul>
                   </div>
                 </div>
@@ -57,10 +44,7 @@
             </div>
             <!--features_items-->
 
-           
             <!--/category-tab-->
-
-           
           </div>
         </div>
       </div>
@@ -129,14 +113,15 @@ export default {
 
 <style>
 .zoomin img {
-      height: 200px;
-      width: 200px;
-      -webkit-transition: all 2s ease;
-      -moz-transition: all 2s ease;
-      -ms-transition: all 2s ease;
-      transition: all 1s ease;
-    }
-    .zoomin img:hover {
-      width: 300px;
-      height: 300px;
-    }</style>
+  height: 200px;
+  width: 200px;
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  transition: all 1s ease;
+}
+.zoomin img:hover {
+  width: 300px;
+  height: 300px;
+}
+</style>

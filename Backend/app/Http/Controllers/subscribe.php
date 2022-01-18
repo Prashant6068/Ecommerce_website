@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Newsletter;
 
+
 class subscribe extends Controller
 {
     /**

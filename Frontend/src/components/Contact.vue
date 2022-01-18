@@ -5,18 +5,19 @@
         <div class="contact-form">
           <h2 class="title text-center">Get In Touch</h2>
 
-          <!-- <div class="status alert alert-success" v-if="submitted == 'done'">
-            <p>Success</p>
-          </div> -->
-            <div class="alert alert-success alert-block"  v-if="submitted == 'done'"> <button type="button" class="close" data-dismiss="alert">×</button>Thankyou for contacting us!</div>
+          <div
+            class="alert alert-success alert-block"
+            v-if="submitted == 'done'"
+          >
+            <button type="button" class="close" data-dismiss="alert">×</button
+            >Thankyou for contacting us!
+          </div>
 
-             
-          <!-- <div class="status alert alert-warning" v-if="submitted == 'err'">
-            <p>error</p>
-          </div> -->
-            <div class="alert alert-info alert-block"  v-if="submitted == 'err'"> <button type="button" class="close" data-dismiss="alert">×</button>Invalid</div>
+          <div class="alert alert-info alert-block" v-if="submitted == 'err'">
+            <button type="button" class="close" data-dismiss="alert">×</button
+            >Invalid
+          </div>
 
-             
           <form @submit.prevent="postContact()">
             <div class="form-group">
               <input
@@ -34,7 +35,9 @@
                 v-if="submitted && $v.user.name.$error"
                 class="invalid-feedback"
               >
-                <span v-if="!$v.user.name.required" class="text-danger"> Name is required</span>
+                <span v-if="!$v.user.name.required" class="text-danger">
+                  Name is required</span
+                >
                 <span v-if="!$v.user.name.alpha">
                   Name should contain only letters</span
                 >
@@ -62,8 +65,12 @@
                 v-if="submitted && $v.user.email.$error"
                 class="invalid-feedback"
               >
-                <span v-if="!$v.user.email.required" class="text-danger">Email is required</span>
-                <span v-if="!$v.user.email.email" class="text-danger">Email is invalid</span>
+                <span v-if="!$v.user.email.required" class="text-danger"
+                  >Email is required</span
+                >
+                <span v-if="!$v.user.email.email" class="text-danger"
+                  >Email is invalid</span
+                >
               </div>
             </div>
             <div class="form-group">
@@ -111,14 +118,14 @@
                 v-if="submitted && $v.user.message.$error"
                 class="invalid-feedback"
               >
-                <span v-if="!$v.user.message.required"
-                  class="text-danger">message is required</span
+                <span v-if="!$v.user.message.required" class="text-danger"
+                  >message is required</span
                 >
-                <span v-if="!$v.user.message.minLength"
-                  class="text-danger">message length should be atleast 10
+                <span v-if="!$v.user.message.minLength" class="text-danger"
+                  >message length should be atleast 10
                 </span>
-                <span v-if="!$v.user.message.maxLength"
-                  class="text-danger">message length should not be greater than 255
+                <span v-if="!$v.user.message.maxLength" class="text-danger"
+                  >message length should not be greater than 255
                 </span>
               </div>
             </div>
@@ -221,10 +228,8 @@ export default {
       contact(formData)
         .then((res) => {
           if (res) {
-            // alert("message send succesfull")
-            // this.$router.push("/login");
             this.submitted = "done";
-            this.$swal("Thankyou for contacting us!","","success")
+            this.$swal("Thankyou for contacting us!", "", "success");
             this.$router.push("/login");
             console.log(res.data);
           }

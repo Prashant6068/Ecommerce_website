@@ -55,39 +55,8 @@
             <div class="logo pull-left">
               <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
             </div>
-            <div class="btn-group pull-right">
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-default dropdown-toggle usa"
-                  data-toggle="dropdown"
-                >
-                  USA
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Canada</a></li>
-                  <li><a href="#">UK</a></li>
-                </ul>
-              </div>
-
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-default dropdown-toggle usa"
-                  data-toggle="dropdown"
-                >
-                  DOLLAR
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Canadian Dollar</a></li>
-                  <li><a href="#">Pound</a></li>
-                </ul>
-              </div>
-            </div>
           </div>
-          <div class="col-sm-8">
+          <div class="col-sm-12">
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
                 <li>
@@ -101,26 +70,28 @@
                   >
                 </li>
                 <li>
-                  <router-link to="/checkout">Checkout</router-link>
+                  <router-link to="/checkout"
+                    ><i class="fa fa-crosshairs"></i>Checkout</router-link
+                  >
                 </li>
-                <li >
+                <li>
                   <router-link to="/cart"
-                    ><i class=" fa fa-shopping-cart"></i>
-                     Cart
-                      <span class="badge">{{ numInCart }}</span>
-                   
+                    ><i class="fa fa-shopping-cart"></i>
+                    Cart
+                    <span class="badge">{{ numInCart }}</span>
                   </router-link>
                 </li>
                 <li>
                   <router-link to="#" v-if="user"
-                    >Welcome {{ user }}
+                    >Welcome: {{ user }}
                   </router-link>
                 </li>
 
                 <li>
                   <!-- <button v-if="loginn" @click="logout()">Logout</button> -->
                   <router-link to="/" v-if="loginn" @click.native="logout()"
-                    >Logout</router-link
+                    ><i class="fa fa-power-off" aria-hidden="true"></i>
+                    Logout</router-link
                   >
                   <!-- <button v-if="loginn" @click.native="logout()" class="btn btn-warning"><i class="fa fa-power-off " aria-hidden="true"></i></button> -->
                   <router-link to="/login" v-if="!loginn">Login</router-link>
@@ -181,11 +152,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="search_box pull-right">
-              <input type="text" placeholder="Search" />
-            </div>
-          </div>
+          <div class="col-sm-3"></div>
         </div>
       </div>
     </div>
@@ -274,28 +241,7 @@ export default {
 
 <style>
 .badge {
-  /* display: inline-block; */
-  /* width: 18px;
-  height: 18px; */
-  /* padding: 2px;
-  display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  background:orange;
+  background: orange;
   color: white;
-  /* border-radius: 100%;
-  margin-left: 5px;
-  margin-bottom: 10px; */
 }
-
-/* .badgeContainer {
-  display: flex;
-  align-items: "center";
-  justify-content: space-between;
-  padding: "5px";
-} */
-
-/* .badgeContainer :nth-child(1) {
-  color: unset;
-} */
 </style>

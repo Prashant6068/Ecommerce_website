@@ -49,7 +49,7 @@ class categoryController extends Controller
             $data->name = $request->name;
             $data->description = $request->description;
             if ($data->save()) {
-                return redirect('/categories')->with("msg","Data inserted successfully");
+                return redirect('/categories')->with("msg", "Data inserted successfully");
             }
         }
     }
@@ -91,7 +91,7 @@ class categoryController extends Controller
         $data->name = $request->name;
         $data->description = $request->description;
         if ($data->save()) {
-            return redirect('/categories')->with("msg","Data updated successfully");
+            return redirect('/categories')->with("msg", "Data updated successfully");
         }
     }
 
@@ -106,6 +106,6 @@ class categoryController extends Controller
         $data = Category::find($id);
         $data->delete();
         $data->products()->delete();
-        return redirect('/categories')->with("err","Data deleted successfully");
+        return redirect('/categories')->with("err", "Data deleted successfully");
     }
 }

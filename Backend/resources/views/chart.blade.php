@@ -30,7 +30,7 @@
     <div id="piechart" style="width: 900px; height: 500px;"></div>
 </div>
 <style>
-    .container{
+    .container {
         width: 500px;
         /* border: 1px solid black; */
         display: flex;

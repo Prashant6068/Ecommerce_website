@@ -6,9 +6,9 @@
           <div class="col-sm-5">
             <div class="shopper-info">
               <p>Personal details</p>
-           
-           <!-- Method for Updatedetails -->
-              <form @submit.prevent="update()"> 
+
+              <!-- Method for Updatedetails -->
+              <form @submit.prevent="update()">
                 <input
                   type="text"
                   placeholder="Email"
@@ -93,7 +93,7 @@ export default {
       submitted: false,
     };
   },
-  methods: { 
+  methods: {
     getDetails() {
       userDetails(this.userid).then((res) => {
         this.user = res.data.details;

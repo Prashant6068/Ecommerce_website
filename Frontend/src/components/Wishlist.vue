@@ -41,10 +41,10 @@
                 </td>
                 <td>
                   <button
-                    class="cart_quantity_delete btn btn-warning btn-default"
+                    class="cart_quantity_delete btn btn-warning"
                     @click="addItem(cart.pro_id)"
                   >
-                  Add to cart
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                   </button>
                 </td>
                 <td class="cart_delete">
@@ -52,8 +52,7 @@
                     class="cart_quantity_delete btn btn-danger btn-default"
                     @click="delItem(cart.id)"
                   >
-                  Delete
-
+                    <i class="fa fa-times"></i>
                   </button>
                 </td>
               </tr>
@@ -102,5 +101,4 @@ export default {
   },
 };
 </script>
-<style>
-</style>
+<style></style>

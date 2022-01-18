@@ -7,11 +7,7 @@
             <!--product-details-->
             <div class="col-sm-5">
               <div class="view-product zoomin">
-                <img
-                  :src="server + images[0].image_path"
-                  alt=""
-                 
-                />
+                <img :src="server + images[0].image_path" alt="" />
               </div>
               <div
                 id="similar-product"
@@ -20,7 +16,7 @@
               >
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                  <div class="item active ">
+                  <div class="item active">
                     <router-link
                       to="#"
                       v-for="(image, index) in images"
@@ -164,5 +160,3 @@ export default {
   },
 };
 </script>
-
-

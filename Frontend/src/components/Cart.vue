@@ -78,49 +78,57 @@
                   </button>
                 </td>
               </tr>
-             
             </tbody>
           </table>
         </div>
-       
-    <div class="p2">
-        <div class="col-sm-6  ">
-          <div class="total_area  ">
-            <ul>
-              <div class="form-group">
-                <input class="form-control" type="text" v-model="value" placeholder="Apply coupan" />
-                <button
-                  type="submit"
-                  @click="applyCoupon()"
-                  class="btn btn-warning"
-                >
-                  Apply coupon
-                </button>
-              </div>
-              <li>
-                Discount
-                <span>
-                  <td>{{ this.discount }}</td></span
-                >
-              </li>
-              <li>Shipping Cost <span>{{this.shipping}}</span></li>
-              <li>
-                Total <span>{{ this.full() }}</span>
-              </li>
-              <div class="p1">
-                  <button class="btn btn-default check_out" @click="payment()">Proceed to checkout</button>
-              </div> </ul>
-        
-           
+
+        <div class="p2">
+          <div class="col-sm-6">
+            <div class="total_area">
+              <ul>
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    v-model="value"
+                    placeholder="Apply coupan"
+                  />
+                  <button
+                    type="submit"
+                    @click="applyCoupon()"
+                    class="btn btn-default btn-warning"
+                  >
+                    Apply coupon
+                  </button>
+                </div>
+                <li>
+                  Discount
+                  <span>
+                    <td>
+                      <i class="fa fa-inr" aria-hidden="true"></i
+                      >{{ this.discount }}
+                    </td></span
+                  >
+                </li>
+                <li>
+                  Shipping Cost <span>{{ this.shipping }}</span>
+                </li>
+                <li>
+                  Total <span>{{ this.full() }}</span>
+                </li>
+                <div class="p1">
+                  <button class="btn btn-default check_out" @click="payment()">
+                    Proceed to checkout
+                  </button>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
-   
-      </div>
       </div>
     </section>
     <!--/#cart_items-->
   </div>
- 
 </template>
 
 <script>
@@ -161,13 +169,13 @@ export default {
       this.$store.dispatch("remItem", arr);
     },
     full() {
-      const items = JSON.parse(localStorage.getItem("mycart"));
+      const items = JSON.parse(localStorage.getItem("mycart")); //it will get the data
       var sum = 0;
       items.forEach((item) => {
         sum = sum + item.price * item.quantity;
       });
       this.total = sum - this.discount;
-       this.total = sum - this.discount;
+      this.total = sum - this.discount;
       if (this.total > 500) {
         this.shipping = "free";
         return this.total;
@@ -222,11 +230,9 @@ export default {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 80px;
-  
 }
-.p1{
-   display: flex;
+.p1 {
+  display: flex;
   justify-content: flex-end;
-  /* margin-bottom: 80px; */
 }
 </style>

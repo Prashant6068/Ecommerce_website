@@ -248,7 +248,7 @@ export default {
             this.submitted = "err";
           } else {
             this.submitted = "done";
-            this.$swal("Register succesfully","",'success')
+            this.$swal("Register succesfully", "", "success");
             this.$router.push("/");
           }
         })
@@ -270,7 +270,7 @@ export default {
             saveToken(res.data.access_token);
             localStorage.setItem("uid", res.data.email);
             this.submitted1 = "done";
-            this.$swal("Login succesfully","",'success')
+            this.$swal("Login succesfully", "", "success");
             console.log(res.data);
             store.dispatch({
               type: type.Islogin,

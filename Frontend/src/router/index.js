@@ -17,6 +17,7 @@ import Home from '../components/Home.vue'
 import Account from '../components/Account.vue'
 import Wishlist from '../components/Wishlist.vue'
 import Myorders from '../components/Myorders.vue'
+import Paypal from '../components/Paypal.vue'
 import Explore from '../components/Explore.vue'
 function myGuard(to, from, next) {
     let isAuthenticated = false;
@@ -99,6 +100,11 @@ export default new Router({
             name: 'Myorders',
             beforeEnter: myGuard,
             component: Myorders
+        },
+        {
+            path: '/paypal',
+            name: 'Paypal',          
+            component: Paypal
         },
     ]
 })

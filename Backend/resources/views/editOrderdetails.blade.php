@@ -14,13 +14,14 @@
 </style>
 <div class="container">
     <form method="POST" action="/orders/{{$status->id}}" class=" form-group ">
-        <h2 class="text-center text-dark">Order status</h2>
+
         @csrf()
         @method('put')
         <div class="card">
-            <h5 class="card-header">Featured</h5>
+            <h5 class="card-header">Order status</h5>
+           
             <div class="card-body">
-                <h5 class="card-title"> Status</h5>
+           
                 <p class="card-text">
                 <div class="container">
 
