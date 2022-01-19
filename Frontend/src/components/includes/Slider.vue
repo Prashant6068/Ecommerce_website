@@ -30,6 +30,7 @@
                   </button>
                 </div>
                 <div class="col-sm-6">
+                  <!-- Render the image -->
                   <img
                     :src="server + banner.image_path"
                     class="girl img-responsive"

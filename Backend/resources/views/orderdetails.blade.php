@@ -43,14 +43,14 @@
                                         <td>{{$i->payment_mode}}</td>
                                         <td class="text-success">{{$i->status}}</td>
                                         <td>
-                                            <a href="/orders/{{$i->id}}/edit" class="btn btn-danger">Edit</a>
+                                            <a href="/orders/{{$i->id}}/edit" class="btn btn-danger"><i class="fas fa-pen"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach
 
                                 </tbody>
                             </table>
-                            {{$data->links()}}
+                       
                         </div>
                     </div>
                     <!-- /.card-body -->

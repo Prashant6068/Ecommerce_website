@@ -8,7 +8,8 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <router-link :to="`/category/${category.id}`"
+                <!-- Pass the param to display category -->
+                <router-link :to="`/category/${category.id}`" 
                   ><span class="badge pull-left"
                     ><i class="fa fa-plus"></i></span
                   >{{ category.name }}

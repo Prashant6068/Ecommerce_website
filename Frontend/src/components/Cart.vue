@@ -41,7 +41,7 @@
                   <p>Web ID: {{ cart.product_id }}</p>
                 </td>
                 <td class="cart_price">
-                  <p>{{ cart.price }}</p>
+                  <p>&#8377;{{ cart.price }}</p>
                 </td>
                 <td class="cart_quantity">
                   <div class="cart_quantity_button">
@@ -69,7 +69,7 @@
                 </td>
                 <td class="cart_total">
                   <p class="cart_total_price">
-                    {{ cart.price * cart.quantity }}
+                    &#8377;{{ cart.price * cart.quantity }}
                   </p>
                 </td>
                 <td class="cart_delete">
@@ -114,7 +114,7 @@
                   Shipping Cost <span>{{ this.shipping }}</span>
                 </li>
                 <li>
-                  Total <span>{{ this.full() }}</span>
+                  Total <span> &#8377;{{ this.full() }}</span> 
                 </li>
                 <div class="p1">
                   <button class="btn btn-default check_out" @click="payment()">
@@ -152,21 +152,21 @@ export default {
     addQty(cart) {
       let item = this.details.indexOf(cart);
       this.details[item].quantity = this.details[item].quantity + 1;
-      let arr = JSON.stringify(this.details);
+      let arr = JSON.stringify(this.details); // object to a string can be easily done with the help of the JSON.stringify() method.
       localStorage.setItem("mycart", arr);
     },
     subQty(cart) {
-      let item = this.details.indexOf(cart);
+      let item = this.details.indexOf(cart); //The indexOf() method of an instance of the String object returns the indexed start position of the string passed
       this.details[item].quantity = this.details[item].quantity - 1;
       let arr = JSON.stringify(this.details);
       localStorage.setItem("mycart", arr);
     },
     delItem(cart) {
       let item = this.details.indexOf(cart);
-      this.details.splice(item, 1);
+      this.details.splice(item, 1); //The splice() method adds and/or removes array elements.
       let arr = JSON.stringify(this.details);
       localStorage.setItem("mycart", arr);
-      this.$store.dispatch("remItem", arr);
+      this.$store.dispatch("remItem", arr); //it will get updated
     },
     full() {
       const items = JSON.parse(localStorage.getItem("mycart")); //it will get the data
@@ -216,8 +216,8 @@ export default {
       this.$router.push("/checkout");
     },
   },
-  mounted: function mounted() {
-    this.details = JSON.parse(localStorage.getItem("mycart"));
+  mounted: function mounted() {  //it will executed  before creating the component
+    this.details = JSON.parse(localStorage.getItem("mycart"));//The parse() the method takes the JSON string, as received from API response, and converts it into a JavaScript object
     console.log(this.details);
     coupon().then((res) => {
       this.coupons = res.data.coupons;

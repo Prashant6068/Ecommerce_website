@@ -12,14 +12,8 @@
                     <div class="card ">
                         <div class="card-header">
                             
-                            <div class="">
-@if(Session::has('msg'))
-<div class="alert alert-success">{{Session::get('msg')}}</div>
 
-</div>
-
-@endif
-                            <a href="/products/create" class="btn btn-dark btn-left ml-3">Add Product</a>
+                            <a href="/products/create" class="btn btn-dark btn-left ml-3"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Add Product</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -55,14 +49,14 @@
                                         <td class="text-danger">Inactive</td>
                                         @endif
                                         <td>
-                                            <a href="/products/{{$i->id}}/edit" class="btn btn-dark">Edit</a>
+                                            <a href="/products/{{$i->id}}/edit" class="btn btn-dark"><i class="fas fa-pen"></i></a>
                                         </td>
                                         <td>
                                             <form action="/products/{{$i->id}}/" method="post">
                                                 @csrf()
                                                 @method('delete')
                                                 <button type="submit" onclick="return confirm('Do you really want to delete product!')" class="btn btn-danger">
-                                                    Delete
+                                                <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
 

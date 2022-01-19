@@ -17,7 +17,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered table-striped">
-                                <thead>
+                                <thead class="thead-dark">
                                     <tr>
                                         <th>Sno</th>
                                         <th>Contact</th>
@@ -37,7 +37,7 @@
                                         <td>{{$i->notification_email}}</td>
                                         <td>{{$i->admin_email}}</td>
                                         <td>
-                                            <a href="/configuration/{{$i->id}}/edit" class="btn btn-dark">Edit</a>
+                                            <a href="/configuration/{{$i->id}}/edit" class="btn btn-dark"><i class="fas fa-pen"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -46,14 +46,14 @@
                                         <td class="text-danger">Inactive</td>
                                         @endif
                                         <td>
-                                            <a href="/users/{{$i->id}}/edit" class="btn btn-dark">Edit</a>
+                                            <a href="/users/{{$i->id}}/edit" class="btn btn-dark"><i class="fas fa-pen"></i></a>
                                         </td>
                                         <td>
                                             <form action="/users/{{$i->id}}/" method="post">
                                                 @csrf()
                                                 @method('delete')
                                                 <button type="submit" onclick="return confirm('Do you really want to delete user!')" class="btn btn-danger">
-                                                    Delete
+                                                <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
 

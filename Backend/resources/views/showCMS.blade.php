@@ -14,13 +14,7 @@
                     <div class="card ">
                         <div class="card-header">
                             
-                            <div class="">
-@if(Session::has('msg'))
-<div class="alert alert-success">{{Session::get('msg')}}</div>
-
-</div>
-
-@endif
+          
                             <a href="/cms/create" class="btn btn-dark btn-left ml-3">Add Cms</a>
                         </div>
                         <!-- /.card-header -->
@@ -49,14 +43,14 @@
                                         </td>
                                         <td>{{$i->description}}</td>
                                         <td>
-                                            <a href="/cms/{{$i->id}}/edit" class="btn btn-dark">Edit</a>
+                                            <a href="/cms/{{$i->id}}/edit" class="btn btn-dark"><i class="fas fa-pen"></i></a>
                                         </td>
                                         <td>
                                             <form action="/cms/{{$i->id}}/" method="post">
                                                 @csrf()
                                                 @method('delete')
                                                 <button type="submit" onclick="return confirm('Do you really want to delete banner')" class="btn btn-danger">
-                                                    Delete
+                                                <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
                                         </td>

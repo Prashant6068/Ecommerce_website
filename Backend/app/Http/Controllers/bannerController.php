@@ -127,6 +127,6 @@ class bannerController extends Controller
         $data = Banner::find($id);
         unlink("uploads/$data->image_path");
         $data->delete();
-        return redirect('/categories')->with("erro", "Data deleted successfully");
+        return redirect('/banners')->with("err", "Data deleted successfully");
     }
 }

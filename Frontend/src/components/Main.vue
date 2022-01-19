@@ -10,7 +10,7 @@
               <!--features_items-->
               <h2 class="title text-center">Features Items</h2>
               <div
-                class="col-sm-4"
+                class="col-sm-3"
                 v-for="(product, index) in productData"
                 :key="index"
               >

@@ -16,7 +16,7 @@ class userOrder extends Controller
      */
     public function index()
     {
-        //
+      
     }
 
     /**
@@ -37,7 +37,7 @@ class userOrder extends Controller
      */
     public function store(Request $request)
     {
-        $orderid = mt_rand(10000, 999999);
+       
         $details = User_order::insert([
             "email" => $request->email,
             "product_name" => $request->product_name,
@@ -46,11 +46,12 @@ class userOrder extends Controller
             "product_image" => $request->product_image,
             "coupon_code" => $request->coupon_code,
             "amount" => $request->amount,
-            "orderId" => $orderid,
+            "paidAmount" => $request->paidAmount,
+            "orderId" =>$request-> orderId,
             "payment_mode" => $request->payment_mode
 
         ]);
-        Mail::to("pm2792493@gmail.com")->send(new Testmail($request->all()));
+        mail::to("pm2792493@gmail.com")->send(new Testmail($request->all()));
         Mail::to($request->email)->send(new Testmail($request->all()));
         return response()->json(["message" => "success"]);
     }

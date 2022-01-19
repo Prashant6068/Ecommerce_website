@@ -40,14 +40,14 @@
                                         <td>{{$i->phone}}</td>
                                         <td>{{$i->message}}</td>
                                         <td>
-                                            <a href="/contacts/{{$i->id}}/edit" class="btn btn-dark">Edit</a>
+                                            <a href="/contacts/{{$i->id}}/edit" class="btn btn-dark"><i class="fas fa-pen"></i></a>
                                         </td>
                                         <td>
                                             <form action="/contacts/{{$i->id}}/" method="post">
                                                 @csrf()
                                                 @method('delete')
                                                 <button type="submit" onclick="return confirm('Do you really want to delete contact!')" class="btn btn-danger">
-                                                    Delete
+                                                <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
 
@@ -71,6 +71,10 @@
 @if(Session::has('msg'))
 <script>
     toastr.success("{!! Session::get('msg')!!}")
+</script>
+@elseif (Session::has('err'))
+<script>
+    toastr.warning("{!! Session::get('err')!!}")
 </script>
 @endif
 @endsection

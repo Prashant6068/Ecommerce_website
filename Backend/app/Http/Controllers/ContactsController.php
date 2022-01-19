@@ -108,6 +108,6 @@ class ContactsController extends Controller
         $data = Contact::find($id);
         $data->delete();
         
-        return redirect('/contacts')->with("msg","Data deleted successfully");
+        return redirect('/contacts')->with("err","Data deleted successfully");
     }
 }

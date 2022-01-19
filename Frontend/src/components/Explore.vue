@@ -42,7 +42,7 @@ export default {
       console.log(res.data);
     });
   },
-  watch: {
+  watch: { //It perform on action when the value changes it is unique property 
     $route(to) {
       this.paramm = to.params.id;
       cmsById(this.paramm).then((res) => {

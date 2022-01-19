@@ -82,7 +82,8 @@ export default {
   name: "Account",
   data() {
     return {
-      userid: localStorage.getItem("uid"),
+      // Getting id through localstorage
+      userid: localStorage.getItem("uid"),    
       user: {},
       user1: {
         oldpassword: "",
@@ -95,17 +96,17 @@ export default {
   },
   methods: {
     getDetails() {
-      userDetails(this.userid).then((res) => {
+      userDetails(this.userid).then((res) => {  //function for to get details from api url
         this.user = res.data.details;
         console.log(this.user);
       });
     },
     update() {
       this.submitted = true;
-      updateUser(this.userid, this.user)
+      updateUser(this.userid, this.user) //function for to update details from api url
         .then((res) => {
           console.log(res.data);
-          this.msg = res.data.user;
+          this.msg = res.data.user;  //to get result
 
           this.$swal("Profile updated  successfully", " ", "success");
         })
@@ -133,7 +134,7 @@ export default {
         });
     },
   },
-  created() {
+  created() {  //it will executed after creating the component
     this.getDetails();
   },
 };

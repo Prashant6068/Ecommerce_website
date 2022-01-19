@@ -38,7 +38,7 @@ export default {
                   description: this.product.description,
                   amount: {
                     currency_code: "USD",
-                    value: this.product.price,
+                    value: this.$store.getters.amount,
                   },
                 },
               ],

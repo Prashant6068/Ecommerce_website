@@ -1,12 +1,8 @@
-
 <template>
   <div class="container">
-  
-   
-       <h2 class="">Order <b>Details</b></h2>
- 
-    <table class="table table-striped table-hover">
+    <h2 class="">Order <b>Details</b></h2>
 
+    <table class="table table-striped table-hover">
       <thead class="">
         <tr>
           <th>Product image</th>
@@ -17,6 +13,7 @@
           <th>Product price</th>
           <th>Applied coupan</th>
           <th>Amount</th>
+          <th>Paid amount</th>
         </tr>
       </thead>
       <tbody>
@@ -31,13 +28,12 @@
           </td>
           <td>{{ order.email }}</td>
           <td>{{ order.product_name }}</td>
-          <td>
-            <span class="status text-success"></span> {{ order.status }}
-          </td>
+          <td><span class="status text-success"></span> {{ order.status }}</td>
           <td>{{ order.product_quantity }}</td>
-          <td>{{ order.product_price }}</td>
+          <td> &#8377;{{ order.product_price }}</td>
           <td>{{ order.coupon_code }}</td>
-          <td>{{ order.amount }}</td>
+          <td> &#8377;{{ order.amount }}</td>
+          <td> &#8377;{{ order.paidAmount }}</td>
         </tr>
       </tbody>
     </table>
@@ -65,7 +61,6 @@ export default {
 </script>
 
 <style>
-
 .table-wrapper .btn {
   float: right;
   color: #333;
@@ -182,4 +177,5 @@ table.table .avatar {
 .text-danger {
   color: #ff5b5b;
 }
+
 </style>

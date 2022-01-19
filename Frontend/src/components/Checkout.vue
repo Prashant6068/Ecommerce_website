@@ -210,8 +210,9 @@
                       >
                     </span>
                     <div v-show="pay == 'online'">
-                      <Paypal />
+                      <Paypal />  
                     </div>
+                    <!-- call the paypal component -->
                     <br />
                     <button class="btn btn-primary">Submit</button>
                   </div>
@@ -240,6 +241,7 @@ export default {
       email_id: localStorage.getItem("uid"),
       server: "http://127.0.0.1:8000/uploads/",
       pay: "COD",
+      orderId: Math.floor(Math.random() * 90000) + 10000,
 
       user: {
         firstName: "",
@@ -281,6 +283,8 @@ export default {
             product_price: item.price,
             amount: item.price * item.quantity,
             coupon_code: this.$store.getters.coupon,
+            orderId: this.orderId,
+            paidAmount: this.$store.getters.amount,
             payment_mode: this.pay,
           };
           userOrder(obj).then((res) => {
@@ -310,7 +314,7 @@ export default {
   },
   computed: {
     total() {
-      return this.$store.getters.amount;
+      return this.$store.getters.amount;  //it will get updated
     },
     coupon() {
       return this.$store.getters.coupon;

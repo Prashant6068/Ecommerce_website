@@ -50,9 +50,9 @@
                                         <form action="/coupons/{{$i->id}}/" method="post">
                                                 @csrf()
                                                 @method('delete')
-                                                <a href="/coupons/{{$i->id}}/edit" class="btn btn-dark">Edit</a>
+                                                <a href="/coupons/{{$i->id}}/edit" class="btn btn-dark"><i class="fas fa-pen"></i></a>
                                                 <button type="submit" onclick="return confirm('Do you really want to delete category!')" class="btn btn-danger">
-                                                    Delete
+                                                <i class="fas fa-trash-alt"></i>
                                                 </button>
                                            
 
