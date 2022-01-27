@@ -8,12 +8,12 @@
 ### Main Directory
 ```
 Ecommerce 
-└───Back-end
+└───Backend
     └───E-Commerce (laravel application)
-└───Front-End
+└───FrontEnd
     └───e-commerce (vue application)
 ```
-## 1. [Laravel Application](https://github.com/sanket-neosoft/Ecommerce/tree/master/Back-end/E-Commerce)
+## 1. [Laravel Application]https://github.com/Prashant6068/Ecommerce_website/tree/master/Backend)
 > Laravel Application Setup
 ```console
 $ cd Back-end
@@ -63,7 +63,7 @@ $ php artisan:db seed
 ```console
 $ php artisan serve
 ```
-## 2. [Vue Application](https://github.com/Prashant6068/Ecommerce_website.git)
+## 2. [Vue Application](https://github.com/Prashant6068/Ecommerce_website/tree/master/Frontend)
 > Vue application setup
 ```console 
 $ cd ../..
