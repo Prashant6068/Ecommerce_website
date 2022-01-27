@@ -13,7 +13,7 @@ Ecommerce
 └───FrontEnd
     └───e-commerce (vue application)
 ```
-## 1. [Laravel Application]https://github.com/Prashant6068/Ecommerce_website/tree/master/Backend)
+## 1. [Laravel Application](https://github.com/Prashant6068/Ecommerce_website/tree/master/Backend)
 > Laravel Application Setup
 ```console
 $ cd Back-end
