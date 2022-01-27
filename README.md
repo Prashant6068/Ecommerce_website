@@ -1,4 +1,4 @@
-# Ecommerce
+# Ecommerce_website
 ## Requirements
 - [XAMPP Server](https://www.apachefriends.org/index.html)
 - [Composer (A Dependency Manager for PHP)](https://getcomposer.org/)
@@ -7,11 +7,10 @@
 ## Content
 ### Main Directory
 ```
-Ecommerce 
+Ecommerce_website 
 └───Backend
-    └───E-Commerce (laravel application)
 └───FrontEnd
-    └───e-commerce (vue application)
+
 ```
 ## 1. [Laravel Application](https://github.com/Prashant6068/Ecommerce_website/tree/master/Backend)
 > Laravel Application Setup
