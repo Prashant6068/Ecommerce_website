@@ -6,6 +6,7 @@ use App\Models\User_order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Testmail;
+use App\Models\configuration;
 
 class userOrder extends Controller
 {
@@ -16,7 +17,7 @@ class userOrder extends Controller
      */
     public function index()
     {
-      
+        //
     }
 
     /**
@@ -51,7 +52,8 @@ class userOrder extends Controller
             "payment_mode" => $request->payment_mode
 
         ]);
-        mail::to("pm2792493@gmail.com")->send(new Testmail($request->all()));
+        $notification_email = configuration::first();
+        Mail::to($notification_email->notification_email)->send(new Testmail($request->all()));
         Mail::to($request->email)->send(new Testmail($request->all()));
         return response()->json(["message" => "success"]);
     }

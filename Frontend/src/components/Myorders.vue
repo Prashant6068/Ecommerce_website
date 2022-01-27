@@ -14,6 +14,8 @@
           <th>Applied coupan</th>
           <th>Amount</th>
           <th>Paid amount</th>
+          <th>Track</th>
+
         </tr>
       </thead>
       <tbody>
@@ -28,12 +30,16 @@
           </td>
           <td>{{ order.email }}</td>
           <td>{{ order.product_name }}</td>
-          <td><span class="status text-success"></span> {{ order.status }}</td>
+          <td>{{ order.status }}</td>
           <td>{{ order.product_quantity }}</td>
           <td> &#8377;{{ order.product_price }}</td>
           <td>{{ order.coupon_code }}</td>
           <td> &#8377;{{ order.amount }}</td>
           <td> &#8377;{{ order.paidAmount }}</td>
+          <td>
+            <router-link :to="`/track/${order.id}`"><button class="btn  btn-warning"> <i class="fa fa-compass" aria-hidden="true">&nbsp;Track</i>
+</button></router-link>
+          </td>
         </tr>
       </tbody>
     </table>

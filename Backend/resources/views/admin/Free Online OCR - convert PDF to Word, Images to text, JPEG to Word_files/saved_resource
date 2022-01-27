@@ -1,0 +1,38 @@
+
+var ftGUID_4167909="50813AF0743873";
+var ftConfID_4167909="0";
+var ftParams_4167909="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_ifb=1&ft_domain=www.onlineocr.net&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.onlineocr.net%2F&cachebuster=604787.2239630172";
+var ftKeyword_4167909="";
+var ftCustom_4167909="";
+var ftSection_4167909="";
+var ftSegment_4167909="afr5,agpy";
+var ftSegmentList_4167909=[{s:'afr5'},{m:'c8562_products',s:'agpy'}];
+var ftRuleMatch_4167909="0";
+var ftTimestamp_4167909="1643093234";
+var ftGeoC2_4167909="in";
+var ftGeoState_4167909="mh";
+var ftGeoCity_4167909="khalapur";
+var ftISP_4167909="fivenetwork solutions india pvt ltd";
+var ftSpeed_4167909="broadband";
+var ftDMA_4167909="356002";
+var ftLong_4167909="73.26";
+var ftLat_4167909="18.76";
+var ftPostal_4167909="410202";
+var ftTimeZone_4167909="530";
+var ftMobileCarrier_4167909="";
+var ftImp4167909 = {};
+ftImp4167909.privacy = "x";
+ftImp4167909.guidAge = "57";
+ftImp4167909.impID = "958E9581-6861-E5FC-8472-E4874728BFE5";
+ftImp4167909.duid = "FT:50813AF0743873";
+
+ftImp4167909.ft_tpplid = "";
+ftImp4167909.ft_c = {};
+ftImp4167909.gdpr = "";
+ftImp4167909.gdpr_consent = "";
+ftImp4167909.gdpr_pd = "";
+ftImp4167909.oob_consent = "";
+ftImp4167909.gdprStoredConsent = "";
+ftImp4167909.us_privacy = "";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/416/4167909/3693274/js/j-4167909-3693274.js" id="ftscript_m4167909" name="ftscript_m4167909"></scr'+'ipt>');

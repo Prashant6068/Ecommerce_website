@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use App\Models\User_order;
 use Illuminate\Http\Request;
 
 
@@ -37,5 +38,10 @@ class firstController extends Controller
         }
         $coupons_details = $data;
         return view('couponChart', compact('coupons_details'));
+    }
+    public function getTrack($id)
+    {
+        $data = User_order::where('id', $id)->first();
+        return response()->json(["track" => $data]);
     }
 }

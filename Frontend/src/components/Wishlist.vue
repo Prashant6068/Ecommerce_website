@@ -13,10 +13,10 @@
             <thead>
               <tr class="cart_menu">
                 <td class="image">Item</td>
-                <td class="description"></td>
+                <td class="description">Description</td>
                 <td class="price">Price</td>
                 <td class="quantity">Add to cart</td>
-                <td class="total">Remove</td>
+                <td class="total text-muted"></td>
                 <td></td>
               </tr>
             </thead>
@@ -37,7 +37,7 @@
                   <p>Web ID: {{ cart.product_id }}</p>
                 </td>
                 <td class="cart_price">
-                  <p>{{ cart.product_price }}</p>
+                  <p>&#8377;{{ cart.product_price }}</p>
                 </td>
                 <td>
                   <button

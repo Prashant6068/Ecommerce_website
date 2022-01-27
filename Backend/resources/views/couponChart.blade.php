@@ -31,6 +31,9 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="container border rounded shadow">
     <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div class="">
+<a href="/coupansexport" class="btn btn-dark"><i class="fa fa-download" aria-hidden="true"></i></a>
+</div>
 </div>
 <style>
     

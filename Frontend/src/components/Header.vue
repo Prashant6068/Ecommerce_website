@@ -74,6 +74,7 @@
                     ><i class="fa fa-crosshairs"></i>Checkout</router-link
                   >
                 </li>
+
                 <li>
                   <router-link to="/cart"
                     ><i class="fa fa-shopping-cart"></i>

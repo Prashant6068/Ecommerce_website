@@ -18,6 +18,8 @@ import Wishlist from "../components/Wishlist.vue";
 import Myorders from "../components/Myorders.vue";
 import Paypal from "../components/Paypal.vue";
 import Explore from "../components/Explore.vue";
+import Track from "../components/Track.vue";
+
 function myGuard(to, from, next) {
   let isAuthenticated = false;
   if (localStorage.getItem("uid") != undefined) {
@@ -33,7 +35,6 @@ function myGuard(to, from, next) {
   }
 }
 export default new Router({
-  // mode: "history",
   routes: [
     {
       path: "/",
@@ -45,6 +46,7 @@ export default new Router({
       name: "Home",
       component: Home,
     },
+   
     {
       path: "/contact",
       name: "Contact",
@@ -101,6 +103,11 @@ export default new Router({
       path: "/paypal",
       name: "Paypal",
       component: Paypal,
+    },
+    {
+      path: "/track/:id",
+      name: "Track",
+      component: Track,
     },
   ],
 });

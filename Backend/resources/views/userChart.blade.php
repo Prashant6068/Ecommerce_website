@@ -32,18 +32,19 @@
 
 <div class="container border rounded shadow">
     <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div>
+        <a href="/usersexport" class="btn btn-dark "><i class="fa fa-download" aria-hidden="true"></i>
+</a>
+    </div>
 </div>
 <style>
-    
-
-    .container{
+    .container {
         width: 500px;
-       
+
         display: flex;
         margin-left: 500px;
         justify-content: center;
     }
-
 </style>
 @stop
 <!-- /.content-wrapper -->

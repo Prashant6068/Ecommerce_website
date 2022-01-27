@@ -44,6 +44,35 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="#" class="nav-link active ">
+            <i class="nav-icon fa fa-recycle"></i>
+            <p>
+              Reports
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/salesreport" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Sales report</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/couponsreport" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Coupan report</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/usersreport" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>User report</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
           <a href="/categories" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>Category
@@ -70,15 +99,16 @@
             <p>Coupon</p>
           </a>
         </li>
+
         <li class="nav-item">
-            <a href="/configuration" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-               Configuration 
-               
-              </p>
-            </a>
-          </li>
+          <a href="/configuration" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Configuration
+
+            </p>
+          </a>
+        </li>
         <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-bell"></i>
@@ -87,51 +117,30 @@
               </p>
             </a>
           </li> -->
-          <li class="nav-item">
-            <a href="/contacts" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-               Contact Us
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/cms" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
+        <li class="nav-item">
+          <a href="/contacts" class="nav-link">
+            <i class="nav-icon fas fa-address-book"></i>
+            <p>
+              Contact Us
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/cms" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
               CMS
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/orders" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-              Order 
-              </p>
-            </a>
-          </li>
-        
-          <li class="nav-item">
-            <a href="/salesreport" class="nav-link ">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sales Report</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/usersreport" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Users Report</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/couponsreport" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Coupons Report</p>
-            </a>
-          </li>
-        
-          
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/orders" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Order
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

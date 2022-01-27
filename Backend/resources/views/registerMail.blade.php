@@ -6,8 +6,8 @@
 </head>
 
 <body>
-    <div class="container text-center">
-        <h2>E-Shopper</h2>
+    <div class="container text-center" bgcolor="#f5f2da">
+        <h2><b>E-Shopper</b></h2>
         <h3>Thankyou for Registration.</h3>
         <h4> Details</h4>
         <h3>Email {{$email}}</h3>

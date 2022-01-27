@@ -65,7 +65,10 @@ export function configuration() {
 export function subscriber(data) {
     return axios.post(`${MAIN_URL}subscribe`,data);
 }
+export function getTrack(id) {
+    return axios.get(`${MAIN_URL}track/${id}`);
+}
 export default {
     userLogin, userRegister, contact, banner, products, categories, categoryProduct, productDetails,
-    userDetails, updateUser, wishlist, getWishlist, deletewishlist, userOrder,subscriber, userAddress, myOrder, CMS, cmsById, configuration
+    userDetails, updateUser, wishlist, getWishlist, deletewishlist, userOrder,subscriber, userAddress, myOrder, CMS, cmsById, configuration,getTrack
 };

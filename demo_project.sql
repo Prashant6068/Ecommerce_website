@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2022 at 11:43 AM
+-- Generation Time: Jan 27, 2022 at 08:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -40,9 +40,9 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `image_path`, `caption`, `created_at`, `updated_at`) VALUES
-(1, '202678217Lenova.jpeg', '20% off', NULL, '2022-01-16 12:53:44'),
-(2, '1346293918Dell.jpeg', '70% off', NULL, NULL),
-(4, '1033908175tshirt3.jpeg', '30%', NULL, NULL);
+(1, '270603597Banner1.jpg', 'Use Coupan code  #COUP12 to \r\nget upto 10% OFF on\r\n minimum shopping of above 500', NULL, '2022-01-19 04:44:09'),
+(2, '940176414banner2.jpg', 'Use Coupan code  #MAX100 to get upto 10% OFF on minimum shopping of above 500', NULL, '2022-01-18 01:39:26'),
+(4, '528170528banner3.jpg', 'Use Coupan code  #SHOP12 to get upto 10% OFF on minimum shopping of above 500', NULL, '2022-01-18 01:39:42');
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE `configurations` (
 --
 
 INSERT INTO `configurations` (`id`, `admin_email`, `notification_email`, `phone_no`, `created_at`, `updated_at`) VALUES
-(1, 'admin@gmail.com', 'prashant.mishra4801@gmail.com', 7276024613, NULL, '2022-01-16 23:33:06');
+(1, 'admin@gmail.com', 'pm2792493@gmail.com', 7276024613, NULL, '2022-01-24 06:18:27');
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,6 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'prashant', 'prashant.mishra4801@gmail.com', 7276024613, 'hello eshopper', NULL, NULL),
 (2, 'manoj', 'manoj@gmail.com', 7276024613, 'Hello guys', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -136,10 +135,10 @@ CREATE TABLE `coupons` (
 --
 
 INSERT INTO `coupons` (`id`, `code`, `type`, `value`, `cart_value`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Coupan12', 'percent', '10.00', '500.00', 1, NULL, NULL),
-(2, '67i5m', 'percent', '10.00', '500.00', 1, NULL, NULL),
-(3, '15ahx', 'fixed', '5.00', '500.00', 1, NULL, NULL),
-(4, '18amd', 'fixed', '5.00', '500.00', 1, NULL, NULL);
+(1, '#COUP12', 'percent', '10.00', '500.00', 0, NULL, '2022-01-24 03:19:13'),
+(2, '#MAX100', 'percent', '10.00', '500.00', 1, NULL, NULL),
+(3, '#SHOP12', 'fixed', '5.00', '500.00', 1, NULL, NULL),
+(4, '#ECOM12', 'fixed', '5.00', '500.00', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -216,7 +215,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (32, '2022_01_14_115736_create_user_addresses_table', 4),
 (33, '2022_01_14_184120_create_c_m_s_managements_table', 4),
 (34, '2022_01_15_173703_create_user_orders_table', 5),
-(35, '2022_01_15_150744_create_configurations_table', 6);
+(35, '2022_01_15_150744_create_configurations_table', 6),
+(36, '2022_01_19_053310_create_user_orders_table', 7);
 
 -- --------------------------------------------------------
 
@@ -476,7 +476,11 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role
 (5, 'nishant', 'mishra', 'nishant@gmail.com', '$2y$10$mCWtSxTLQlcRQaBfunXBsuv/bvtBQ3RKWAXItvnsDMZu6WIBdt79S', 'customer', 1, NULL, NULL, NULL, NULL),
 (6, 'sumit', 'mishra', 'sumit@gmail.com', '$2y$10$Eh7jEMyaYfB.tD5kfKa.dul6wFfvaDL.R3NOcu268OlqImh2mZs2G', 'customer', 1, NULL, NULL, NULL, NULL),
 (8, 'suraj', 'arya', 'surajarya745@gmail.com', '$2y$10$iFDvZ.KiL9CMjn/cDJyRC.dSox2L6LKdR/976t2uGA8i2L29OueC6', 'customer', 1, NULL, NULL, NULL, NULL),
-(10, 'devesh', 'jadhav', 'deveshjadhav982@gmail.com', '$2y$10$XZQePti7AiTz82cNFFz9FOffNBHcnBAPEZ/vfEv49ycNYItztp1i.', 'customer', 1, NULL, NULL, NULL, '2022-01-17 05:06:27');
+(11, 'manisha', 'gupta', 'manishagupta456@gmail.com', '$2y$10$7Is8T5DYPS8QbA0bfRkyheGUtZLoLZOg6idgoIv3J7gDViBEeCkHG', 'customer', 1, NULL, NULL, NULL, NULL),
+(12, 'dheeraj', 'patil', 'dheeraj.c.patil@gmail.com', '$2y$10$E/9jnbDNVmZvDYSU3xQF/esnaH3ooA2G/mekWd.2XKtuQGOOMB.Ai', 'customer', 1, NULL, NULL, NULL, NULL),
+(13, 'Roshni', 'dharkar', 'roshnidharkar.111@gmail.com', '$2y$10$vINZVy1o9AS0gljAIk2EceE5JmKj/.7Kowrp1H2mMLVXZomT3DTwO', 'customer', 1, NULL, NULL, NULL, NULL),
+(14, 'nishant', 'mishra', 'nishantmishra101@gmail.com', '$2y$10$4wIyJVU8u5Dqt92Klvh3u.F/Aj21D52QHZAhDyfgxRbSjIO2HY8iK', 'customer', 1, NULL, NULL, NULL, NULL),
+(15, 'devesh', 'jadhav', 'deveshjadhav982@gmail.com', '$2y$10$TZyeh2jDUASePCHrfc5ygefz2QsUHQfOLJSAD8uEMBdsE9CA5S4zC', 'customer', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -502,7 +506,38 @@ CREATE TABLE `user_addresses` (
 INSERT INTO `user_addresses` (`id`, `user_email`, `name`, `address`, `phone`, `postal`, `created_at`, `updated_at`) VALUES
 (1, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
 (16, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081318, 410203, NULL, NULL),
-(17, 'deveshjadhav982@gmail.com', 'devesh', 'mumbai', 7776081319, 410203, NULL, NULL);
+(17, 'deveshjadhav982@gmail.com', 'devesh', 'mumbai', 7776081319, 410203, NULL, NULL),
+(18, 'p@gmail.com', 'pawan', 'mumbai', 7776081318, 410203, NULL, NULL),
+(19, 'manishagupta456@gmail.com', 'manisha', 'mumbai', 7776081318, 410203, NULL, NULL),
+(20, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081318, 410203, NULL, NULL),
+(21, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(22, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(23, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081318, 410203, NULL, NULL),
+(24, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(25, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081318, 410203, NULL, NULL),
+(26, 'deveshjadhav982@gmail.com', 'devesh', 'mumbai', 7776081318, 410203, NULL, NULL),
+(27, 'prashant.mishra4801@gmail.com', 'prashant', 'ssss', 7776081318, 410203, NULL, NULL),
+(28, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081317, 410203, NULL, NULL),
+(29, 'dheeraj.c.patil@gmail.com', 'dheeraj', 'mumbai', 7776088888, 410203, NULL, NULL),
+(30, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776088888, 410203, NULL, NULL),
+(31, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(32, 'prashant.mishra4801@gmail.com', 'aaaaaa', 'mumbai', 7776081318, 410203, NULL, NULL),
+(33, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(34, 'prashant.mishra4801@gmail.com', 'prashant', 'aaa', 7776088888, 410203, NULL, NULL),
+(35, 'prashant.mishra4801@gmail.com', 'prashant', 'sss', 7776088888, 410203, NULL, NULL),
+(36, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(37, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(38, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(39, 'admin@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(40, 'prashant.mishra4801@gmail.com', 'devesh', 'ssssssssss', 7776088888, 410203, NULL, NULL),
+(41, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776088888, 410203, NULL, NULL),
+(42, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776088888, 410203, NULL, NULL),
+(43, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776088888, 410203, NULL, NULL),
+(44, 'roshnidharkar.111@gmail.com', 'Roshni', 'pen', 7776081317, 410202, NULL, NULL),
+(45, 'nishantmishra101@gmail.com', 'nishant', 'mumbai', 7776081319, 410203, NULL, NULL),
+(46, 'admin@gmail.com', 'devesh', 'mumbai', 7776081319, 410203, NULL, NULL),
+(47, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081318, 410203, NULL, NULL),
+(48, 'prashant.mishra4801@gmail.com', 'prashant', 'mumbai', 7776081319, 410203, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -520,6 +555,7 @@ CREATE TABLE `user_orders` (
   `product_quantity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `coupon_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount` int(11) NOT NULL,
+  `paidAmount` int(11) NOT NULL,
   `payment_mode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -530,12 +566,12 @@ CREATE TABLE `user_orders` (
 -- Dumping data for table `user_orders`
 --
 
-INSERT INTO `user_orders` (`id`, `orderId`, `email`, `product_name`, `product_image`, `product_price`, `product_quantity`, `coupon_code`, `amount`, `payment_mode`, `status`, `created_at`, `updated_at`) VALUES
-(1, '271091', 'prashant.mishra4801@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', NULL, 35499, 'COD', 'delivered', NULL, '2022-01-16 03:39:16'),
-(11, '838682', 'nishant@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', NULL, 35499, 'COD', 'pending', NULL, NULL),
-(13, '70272', 'nishant@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', NULL, 35499, 'COD', 'pending', NULL, NULL),
-(18, '517451', 'prashant.mishra4801@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', '67i5m', 35499, 'COD', 'delivered', NULL, '2022-01-16 23:46:15'),
-(19, '456080', 'deveshjadhav982@gmail.com', 'Casual teshirt', '1530970199first.jpeg', 500, '1', '67i5m', 500, 'COD', 'delivered', NULL, '2022-01-17 05:05:06');
+INSERT INTO `user_orders` (`id`, `orderId`, `email`, `product_name`, `product_image`, `product_price`, `product_quantity`, `coupon_code`, `amount`, `paidAmount`, `payment_mode`, `status`, `created_at`, `updated_at`) VALUES
+(1, '67519', 'prashant.mishra4801@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', '#COUP12', 35499, 31949, 'COD', 'cancelled', NULL, '2022-01-25 06:55:32'),
+(22, '14228', 'nishantmishra101@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', NULL, 35499, 35499, 'COD', 'pending', NULL, NULL),
+(23, '37653', 'deveshjadhav982@gmail.com', 'Iphone SE', '1924463579iphone1.jpeg', 35499, '1', NULL, 35499, 35499, 'COD', 'pending', NULL, NULL),
+(24, '39452', 'prashant.mishra4801@gmail.com', 'realme 8 5G', '645513104first.jpeg', 16499, '1', '#MAX100', 16499, 14849, 'COD', 'pending', NULL, NULL),
+(25, '55767', 'prashant.mishra4801@gmail.com', 'Lenova', '1386234844first.jpeg', 38999, '1', NULL, 38999, 38999, 'COD', 'pending', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -560,12 +596,13 @@ CREATE TABLE `wishlists` (
 --
 
 INSERT INTO `wishlists` (`id`, `user_email`, `pro_id`, `product_id`, `product_name`, `product_price`, `image_path`, `created_at`, `updated_at`) VALUES
-(1, 'prashant.mishra4801@gmail.com', 1, 'hfj7fdpdhxws4kk0', 'Iphone SE', '35499.00', 'http://127.0.0.1:8000/uploads/1924463579iphone1.jpeg', NULL, NULL),
-(2, 'prashant.mishra4801@gmail.com', 2, 'qep8w1y4ekgwok', 'SAMSUNG  M12', '11350.00', 'http://127.0.0.1:8000/uploads/2748141834th.jpeg', NULL, NULL),
 (3, 'prashant.mishra4801@gmail.com', 5, 'z5ia89vzmhp', 'Hp', '57990.00', 'http://127.0.0.1:8000/uploads/412711165first.jpeg', NULL, NULL),
 (4, 'nishant@gmail.com', 5, 'z5ia89vzmhp', 'Hp', '57990.00', 'http://127.0.0.1:8000/uploads/412711165first.jpeg', NULL, NULL),
 (5, 'prashant.mishra4801@gmail.com', 8, 'qe3voxyz', 'Black glasses', '200.00', 'http://127.0.0.1:8000/uploads/1671305446first.jpeg', NULL, NULL),
-(6, 'deveshjadhav982@gmail.com', 10, '4g2ah6yio8sz', 'Casual teshirt', '500.00', 'http://127.0.0.1:8000/uploads/1530970199first.jpeg', NULL, NULL);
+(6, 'deveshjadhav982@gmail.com', 10, '4g2ah6yio8sz', 'Casual teshirt', '500.00', 'http://127.0.0.1:8000/uploads/1530970199first.jpeg', NULL, NULL),
+(7, 'manishagupta456@gmail.com', 5, 'z5ia89vzmhp', 'Hp', '57990.00', 'http://127.0.0.1:8000/uploads/412711165first.jpeg', NULL, NULL),
+(8, 'prashant.mishra4801@gmail.com', 1, 'hfj7fdpdhxws4kk0', 'Iphone SE', '35499.00', 'http://127.0.0.1:8000/uploads/1924463579iphone1.jpeg', NULL, NULL),
+(9, 'dheeraj.c.patil@gmail.com', 1, 'hfj7fdpdhxws4kk0', 'Iphone SE', '35499.00', 'http://127.0.0.1:8000/uploads/1924463579iphone1.jpeg', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -704,7 +741,7 @@ ALTER TABLE `wishlists`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -722,7 +759,7 @@ ALTER TABLE `configurations`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `coupons`
@@ -746,7 +783,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -788,25 +825,25 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_addresses`
 --
 ALTER TABLE `user_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `user_orders`
 --
 ALTER TABLE `user_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

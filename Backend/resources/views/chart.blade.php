@@ -28,11 +28,14 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="container border rounded shadow">
     <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div class="">
+        <a href="/export" class="btn btn-dark"><i class="fa fa-download" aria-hidden="true"></i></a>
+    </div>
 </div>
 <style>
     .container {
         width: 500px;
-        /* border: 1px solid black; */
+
         display: flex;
         margin-left: 500px;
         justify-content: flex-end;

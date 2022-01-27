@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Registermail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Product_images;
 use Illuminate\Support\Facades\Hash;
-use App\Mail\Registermail;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\Testmail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Models\configuration;
+use App\Mail\Testmail;
 
 class JWTcontroller extends Controller
 {
@@ -35,8 +38,9 @@ class JWTcontroller extends Controller
                 "email" => $request->email,
                 "password" => Hash::make($request->password)
             ]);
+            $notification_email = configuration::first();
             Mail::to($request->email)->send(new Registermail($request->all()));
-            Mail::to("pm2792493@gmail.com")->send(new Registermail($request->all()));
+            Mail::to($notification_email->notification_email)->send(new Registermail($request->all()));
             return response()->json([
                 'message' => 'User create successfully',
                 'user' => $user
@@ -56,9 +60,18 @@ class JWTcontroller extends Controller
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
             // return $this->respondWithToken($token);
-            return response()->json(['error' => 0, 'access_token' => $token, 'email' => $request->email], 200);
+            return response()->json(['access_token' => $token, "email" => $request->email], 200);
         }
     }
+    public function updatee(Request $request, $id)
+    {
+        $data = User::where('email', $id)->update([
+            "first_name" => $request->firstname,
+            "last_name" => $request->lastname
+        ]);
+        return response()->json(["user" => "updated"]);
+    }
+
     public function respondWithToken($token)
     {
         return response()->json([
@@ -67,6 +80,7 @@ class JWTcontroller extends Controller
             'expires_in' => auth()->guard('api')->factory()->getTTL() * 60
         ]);
     }
+
     public function logout()
     {
         auth()->guard('api')->logout();

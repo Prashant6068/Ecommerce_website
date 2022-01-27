@@ -37,6 +37,11 @@
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
+                            <input type="radio" class="form-check-inputs" name="status" value="shipping" {{$status->status=="shipping"?'checked':''}}>Shipping
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="status" value="cancelled" {{$status->status=="cancelled"?'checked':''}}>Cancelled
                         </label>
                     </div>
