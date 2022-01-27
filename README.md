@@ -15,7 +15,7 @@ Ecommerce_website
 ## 1. [Laravel Application](https://github.com/Prashant6068/Ecommerce_website/tree/master/Backend)
 > Laravel Application Setup
 ```console
-$ cd Back-end
+$ cd Backend
 
 $ composer install
 ```
