@@ -1,4 +1,4 @@
-# ecommerceeeee
+# ecommerce
 
 ## Project setup
 ```
