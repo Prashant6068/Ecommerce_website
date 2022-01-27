@@ -150,6 +150,7 @@
                 <li>
                   <router-link to="/contact">Contact us </router-link>
                 </li>
+ <li><router-link to="/tracking">Track</router-link></li>
               </ul>
             </div>
           </div>

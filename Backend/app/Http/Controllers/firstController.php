@@ -41,7 +41,7 @@ class firstController extends Controller
     }
     public function getTrack($id)
     {
-        $data = User_order::where('id', $id)->first();
+    $data = User_order::where('orderId', $id)->get();
         return response()->json(["track" => $data]);
     }
 }

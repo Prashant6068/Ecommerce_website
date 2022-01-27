@@ -3,38 +3,40 @@
     <div class="tracking">
       <div class="title"><h2>Tracking Order</h2></div>
     </div>
-    <div class="progress-track" v-if="status == 'pending'">
-      <ul id="progressbar">
-        <li class="step0 text-center active" id="step1">Pending</li>
-        <li class="step0 text-center" id="step2">On the way</li>
-        <li class="step0 text-center" id="step3">Delivered</li>
-        <li class="step0 text-center" id="step4">Cancelled</li>
-      </ul>
-    </div>
-    <div class="progress-track" v-if="status == 'shipping'">
-      <ul id="progressbar">
-        <li class="step0 text-center active" id="step1">Pending</li>
-        <li class="step0 text-center active" id="step2">On the way</li>
-        <li class="step0 text-center" id="step3">Delivered</li>
-        <li class="step0 text-center" id="step4">Cancelled</li>
-      </ul>
-    </div>
-    <div class="progress-track" v-if="status == 'delivered'">
-      <ul id="progressbar">
-        <li class="step0 text-center active" id="step1">Pending</li>
-        <li class="step0 text-center active" id="step2">On the way</li>
-        <li class="step0 text-center active" id="step3">Delivered</li>
-        <li class="step0 text-center" id="step4">Cancelled</li>
-      </ul>
-    </div>
-    <div class="progress-track" v-if="status == 'cancelled'">
-      <ul id="progressbar">
-        <li class="step0 text-center" id="step1">Pending</li>
-        <li class="step0 text-center" id="step2">On the way</li>
-        <li class="step0 text-center" id="step3">Delivered</li>
-        <li class="step0  text-center " id="step4"><p>Cancelled</p></li>
-        
-      </ul>
+    <div v-for="track in details" :key="track.id">
+      <b>{{ track.product_name }}</b>
+      <div class="progress-track" v-if="track.status == 'pending'">
+        <ul id="progressbar">
+          <li class="step0 text-center active" id="step1">Pending</li>
+          <li class="step0 text-center" id="step2">On the way</li>
+          <li class="step0 text-center" id="step3">Delivered</li>
+          <li class="step0 text-center" id="step4">Cancelled</li>
+        </ul>
+      </div>
+      <div class="progress-track" v-if="track.status == 'shipping'">
+        <ul id="progressbar">
+          <li class="step0 text-center active" id="step1">Pending</li>
+          <li class="step0 text-center active" id="step2">On the way</li>
+          <li class="step0 text-center" id="step3">Delivered</li>
+          <li class="step0 text-center" id="step4">Cancelled</li>
+        </ul>
+      </div>
+      <div class="progress-track" v-if="track.status == 'delivered'">
+        <ul id="progressbar">
+          <li class="step0 text-center active" id="step1">Pending</li>
+          <li class="step0 text-center active" id="step2">On the way</li>
+          <li class="step0 text-center active" id="step3">Delivered</li>
+          <li class="step0 text-center" id="step4">Cancelled</li>
+        </ul>
+      </div>
+      <div class="progress-track" v-if="track.status == 'cancelled'">
+        <ul id="progressbar">
+          <li class="step0 text-center" id="step1">Pending</li>
+          <li class="step0 text-center" id="step2">On the way</li>
+          <li class="step0 text-center" id="step3">Delivered</li>
+          <li class="step0 text-center" id="step4"><p>Cancelled</p></li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -48,7 +50,6 @@ export default {
       email: localStorage.getItem("uid"),
       details: undefined,
       trackId: undefined,
-      status: undefined,
     };
   },
   created() {
@@ -57,8 +58,9 @@ export default {
   mounted() {
     getTrack(this.trackId).then((res) => {
       this.details = res.data.track;
-      this.status = this.details.status;
-      console.log(this.status);
+      if (this.details == "") {
+        this.$swal("invalid", "", "error");
+      }
     });
   },
 };
@@ -78,7 +80,7 @@ export default {
   border-right: none;
   margin-bottom: 50px;
 }
-p{
+p {
   color: red;
 }
 @media (max-width: 768px) {
@@ -86,12 +88,15 @@ p{
     width: 90%;
   }
 }
+b {
+  margin-left: 70px;
+}
 
 .title {
   color: rgb(252, 103, 49);
   font-weight: 60;
   margin-bottom: 2vh;
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 0 8%;
   font-size: initial;
 }
@@ -244,7 +249,7 @@ p{
 
 .progress-track {
   padding: 0 8%;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 #progressbar li:nth-child(2):after {

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2 class="">Order <b>Details</b></h2>
+    <h2 class="">Order Details</h2>
 
     <table class="table table-striped table-hover">
       <thead class="">
@@ -14,8 +14,6 @@
           <th>Applied coupan</th>
           <th>Amount</th>
           <th>Paid amount</th>
-          <th>Track</th>
-
         </tr>
       </thead>
       <tbody>
@@ -32,14 +30,10 @@
           <td>{{ order.product_name }}</td>
           <td>{{ order.status }}</td>
           <td>{{ order.product_quantity }}</td>
-          <td> &#8377;{{ order.product_price }}</td>
+          <td>&#8377;{{ order.product_price }}</td>
           <td>{{ order.coupon_code }}</td>
-          <td> &#8377;{{ order.amount }}</td>
-          <td> &#8377;{{ order.paidAmount }}</td>
-          <td>
-            <router-link :to="`/track/${order.id}`"><button class="btn  btn-warning"> <i class="fa fa-compass" aria-hidden="true">&nbsp;Track</i>
-</button></router-link>
-          </td>
+          <td>&#8377;{{ order.amount }}</td>
+          <td>&#8377;{{ order.paidAmount }}</td>
         </tr>
       </tbody>
     </table>
@@ -183,5 +177,4 @@ table.table .avatar {
 .text-danger {
   color: #ff5b5b;
 }
-
 </style>

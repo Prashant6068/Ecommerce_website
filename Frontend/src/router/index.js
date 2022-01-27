@@ -19,6 +19,7 @@ import Myorders from "../components/Myorders.vue";
 import Paypal from "../components/Paypal.vue";
 import Explore from "../components/Explore.vue";
 import Track from "../components/Track.vue";
+import Tracking from "../components/Tracking.vue";
 
 function myGuard(to, from, next) {
   let isAuthenticated = false;
@@ -105,9 +106,16 @@ export default new Router({
       component: Paypal,
     },
     {
-      path: "/track/:id",
-      name: "Track",
-      component: Track,
-    },
+      path: '/tracking',
+      beforeEnter: myGuard,
+      name: 'Tracking',
+      component: Tracking
+  },
+  {
+      path: '/track/:id',
+      beforeEnter: myGuard,
+      name: 'Track',
+      component: Track
+  },
   ],
 });
