@@ -144,7 +144,7 @@
                   placeholder="Your email address"
                   v-model="subscriber_email"
                 />
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="">
                   <i class="fa fa-arrow-circle-o-right"></i>
                 </button>
                 <p>

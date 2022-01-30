@@ -57,7 +57,7 @@ import Sidebar from "./includes/Sidebar.vue";
 import { categoryProduct } from "@/common/Service";
 import { wishlist } from "@/common/Service";
 export default {
-  name: "Home",
+  name: "Category",
   data() {
     return {
       category: undefined,

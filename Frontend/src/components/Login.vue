@@ -24,8 +24,8 @@
                 v-if="submitted1 && $v.login.email.$error"
                 class="invalid-feedback"
               >
-                <span v-if="!$v.login.email.required">Email is required</span>
-                <span v-if="!$v.login.email.email">Email is invalid</span>
+                <span v-if="!$v.login.email.required">*Email is required</span>
+                <span v-if="!$v.login.email.email">*Email is invalid</span>
               </div>
 
               <input

@@ -12,7 +12,7 @@ import Cart from "../components/Cart.vue";
 
 import Productdetails from "../components/Productdetails.vue";
 import Checkout from "../components/Checkout.vue";
-import Home from "../components/Home.vue";
+import Category from "../components/Category.vue";
 import Account from "../components/Account.vue";
 import Wishlist from "../components/Wishlist.vue";
 import Myorders from "../components/Myorders.vue";
@@ -44,8 +44,8 @@ export default new Router({
     },
     {
       path: "/category/:id",
-      name: "Home",
-      component: Home,
+      name: "Category",
+      component: Category,
     },
    
     {

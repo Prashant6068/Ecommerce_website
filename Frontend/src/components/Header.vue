@@ -25,19 +25,19 @@
             <div class="social-icons pull-right">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                  <a href="https://dribble.com/"><i class="fa fa-dribbble"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="https://myaccount.google.com/"><i class="fa fa-google-plus"></i></a>
                 </li>
               </ul>
             </div>
@@ -150,7 +150,7 @@
                 <li>
                   <router-link to="/contact">Contact us </router-link>
                 </li>
- <li><router-link to="/tracking">Track</router-link></li>
+ <li><router-link to="/tracking">Track order</router-link></li>
               </ul>
             </div>
           </div>

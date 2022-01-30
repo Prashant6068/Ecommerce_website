@@ -12,6 +12,7 @@
           <th>Product quantity</th>
           <th>Product price</th>
           <th>Applied coupan</th>
+          <th>Track id</th>
           <th>Amount</th>
           <th>Paid amount</th>
         </tr>
@@ -21,8 +22,8 @@
           <td>
             <img
               :src="server + order.product_image"
-              height="80px"
-              width="100px"
+              height="50px"
+              width="90px"
               alt="Avatar"
             />
           </td>
@@ -32,6 +33,7 @@
           <td>{{ order.product_quantity }}</td>
           <td>&#8377;{{ order.product_price }}</td>
           <td>{{ order.coupon_code }}</td>
+          <td>{{ order.orderId }}</td>
           <td>&#8377;{{ order.amount }}</td>
           <td>&#8377;{{ order.paidAmount }}</td>
         </tr>

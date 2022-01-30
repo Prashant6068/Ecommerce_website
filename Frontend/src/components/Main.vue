@@ -10,7 +10,7 @@
               <!--features_items-->
               <h2 class="title text-center">Features Items</h2>
               <div
-                class="col-sm-3"
+                class="col-sm-4"
                 v-for="(product, index) in productData"
                 :key="index"
               >
@@ -89,7 +89,7 @@ export default {
         if (res.data.message == "already added") {
           this.$swal("already added", "", "error");
         } else {
-          this.$swal("added to wishlist", "", "success");
+          this.$swal("Added to wishlist", "", "success");
         }
         console.log(res.data);
       });
