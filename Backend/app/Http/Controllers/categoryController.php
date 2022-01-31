@@ -14,8 +14,9 @@ class categoryController extends Controller
      */
     public function index()
     {
-        $data = Category::all();
+        $data = Category::paginate(3);
         return view('category', compact('data'));
+        
     }
 
     /**
@@ -40,9 +41,9 @@ class categoryController extends Controller
             'name' => 'required|unique:categories',
             "description" => 'required|min:5|max:500'
         ], [
-            'name.requried' => 'Name is required',
-            'name.unique' => "Name is unique",
-            'description.required' => "Description is required",
+            'name.required' => '*Name is required',
+            'name.unique' => "*Name is unique",
+            'description.required' => "*Description is required",
         ]);
         if ($validateData) {
             $data = new Category();

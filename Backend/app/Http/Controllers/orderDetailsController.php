@@ -18,7 +18,7 @@ class orderDetailsController extends Controller
      */
     public function index()
     {
-        $data = User_order::latest()->get();
+        $data = User_order::latest()->paginate(3);
         return view('orderdetails', compact('data'));
     }
 
@@ -80,7 +80,7 @@ class orderDetailsController extends Controller
         ]);
         $details=User_order::find($id);
         Mail::to($userdata->email)->send(new Deliveryemail($details));
-        return redirect("orders");
+        return redirect("orders")->with('msg',"Order updated succesfully");
     }
 
     /**

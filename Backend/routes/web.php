@@ -48,9 +48,10 @@ Route::middleware([admin::class])->group(function () {
     Route::get('/salesreport', [firstController::class, 'salesReport']);
     Route::get('/usersreport', [firstController::class, 'userReport']);
     Route::get('/couponsreport', [firstController::class, 'couponReport']);
+    Route::get('/export', [App\Http\Controllers\ExportController::class, 'export']);
+Route::get('/usersexport', [App\Http\Controllers\ExportController::class, 'usersexport']);
+Route::get('/coupansexport', [App\Http\Controllers\ExportController::class, 'coupansexport']);
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/export', [App\Http\Controllers\ExportController::class, 'export']);
-Route::get('/usersexport', [App\Http\Controllers\ExportController::class, 'usersexport']);
-Route::get('/coupansexport', [App\Http\Controllers\ExportController::class, 'coupansexport']);

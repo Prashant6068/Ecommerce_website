@@ -14,8 +14,6 @@ use App\Http\Controllers\cmsApi;
 use App\Http\Controllers\subscribe;
 use App\Http\Controllers\userApi;
 use App\Http\Controllers\firstController;
-use App\Models\Order_detail;
-use App\Models\userAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +44,6 @@ Route::apiResource('/categories', categoryApi::class);
 Route::apiResource('/products', productApi::class);
 Route::apiResource('/password', passwordApi::class);
 Route::apiResource('/wishlist', wishlistController::class);
-// Route::apiResource('/usercoupon', couponApiController::class);
 Route::apiResource('/getcoupons', couponApiController::class);
 Route::apiResource('/userorder', userOrder::class);
 Route::apiResource('/address', userAddressController::class);

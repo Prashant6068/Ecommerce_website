@@ -22,7 +22,6 @@ class productController extends Controller
         $data = Product::paginate(2);
         return view('products', compact('data'));
     }
-
     /**
      * Show the form for creating a new resource.
      *

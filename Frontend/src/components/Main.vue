@@ -24,7 +24,8 @@
                           height="250px"
                           width="150px"
                         />
-                        <b class="">Name: {{ product.name }}</b>
+                        <!-- <b class="">Name: {{ product.name }}</b> -->
+                        <h2>{{ product.name}}</h2>
                         <h2 class="">&#x20B9;{{ product.price }}</h2>
                         <!-- <b>sale price: &#x20B9; {{ product.saleprice }}</b> -->
                         <button class="btn btn-default add-to-cart">
