@@ -9,13 +9,10 @@ use App\Http\Controllers\cmsController;
 use App\Http\Controllers\configurationController;
 use App\Http\Controllers\orderDetailsController;
 use App\Http\Controllers\firstController;
-
-
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
-use App\Http\Controllers\userOrder;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Middleware\adminmiddleware;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +38,7 @@ Route::middleware([admin::class])->group(function () {
     Route::resource('banners', bannerController::class);
     Route::resource('products', productController::class);
     Route::resource('coupons', couponController::class);
- Route::resource('orders', orderDetailsController::class);
+    Route::resource('orders', orderDetailsController::class);
     Route::resource('contacts', ContactsController::class);
     Route::resource('cms', cmsController::class);
     Route::resource('configuration', configurationController::class);
@@ -49,9 +46,9 @@ Route::middleware([admin::class])->group(function () {
     Route::get('/usersreport', [firstController::class, 'userReport']);
     Route::get('/couponsreport', [firstController::class, 'couponReport']);
     Route::get('/export', [App\Http\Controllers\ExportController::class, 'export']);
-Route::get('/usersexport', [App\Http\Controllers\ExportController::class, 'usersexport']);
-Route::get('/coupansexport', [App\Http\Controllers\ExportController::class, 'coupansexport']);
-
+    Route::get('/usersexport', [App\Http\Controllers\ExportController::class, 'usersexport']);
+    Route::get('/coupansexport', [App\Http\Controllers\ExportController::class, 'coupansexport']);
+    Route::get('/productImages/{id}', [firstController::class, 'deleteImages']);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

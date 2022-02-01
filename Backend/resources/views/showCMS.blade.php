@@ -12,7 +12,7 @@
 
                 <div class="col-12  ">
                     <div class="card ">
-                        <div class="card-header">
+                    <div class="card-header card-outline card-dark">
                             
           
                             <a href="/cms/create" class="btn btn-dark btn-left ml-3">Add Cms</a>

@@ -115,7 +115,8 @@ class productController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product_images::where('products_id', $id)->get();
+        return view('productImages', compact('product'));
     }
 
     /**

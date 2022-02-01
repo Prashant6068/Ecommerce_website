@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\User_order;
+use App\Models\Product_images;
 use Illuminate\Http\Request;
 
 
@@ -43,5 +44,12 @@ class firstController extends Controller
     {
     $data = User_order::where('orderId', $id)->get();
         return response()->json(["track" => $data]);
+    }
+    public function deleteImages($id)
+    {
+        $images = Product_images::find($id);
+        unlink("uploads/$images->image_path");
+        $images->delete();
+        return back()->with("msg", "Data Deleted successfully");
     }
 }

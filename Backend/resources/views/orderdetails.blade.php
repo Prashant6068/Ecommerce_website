@@ -10,7 +10,7 @@
 
         <div class="col-12  ">
             <div class="card ">
-                <div class="card-header">
+            <div class="card-header card-outline card-dark">
 
 
                     <a href="#" class="btn btn-dark "><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Order details</a>
