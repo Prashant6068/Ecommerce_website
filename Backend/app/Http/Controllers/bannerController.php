@@ -112,7 +112,7 @@ class bannerController extends Controller
             Banner::where('id', $id)->update([
                 "caption" => $request->caption
             ]);
-            return redirect('/banners');
+            return redirect('/banners')->with("msg", "Data updated successfully");
         }
     }
 

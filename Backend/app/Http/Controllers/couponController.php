@@ -42,6 +42,12 @@ class couponController extends Controller
             "cart_value" => "required",
             "value" => "required",
             "status" => "required",
+        ],[
+            
+            "type.required" => "*Select type",
+            "cart_value.required" => "*Minimum amount is required",
+            "value.required" => "*Value is required",
+            "status.required" => "*Status required",
         ]);
         if ($validateData) {
             Coupon::insert([

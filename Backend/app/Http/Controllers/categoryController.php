@@ -88,6 +88,14 @@ class categoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validateData = $request->validate([
+            'name' => 'required',
+            "description" => 'required|min:5|max:500'
+        ], [
+            'name.required' => '*Name is required',
+            'name.unique' => "*Name is unique",
+            'description.required' => "*Description is required",
+        ]);
         $data = Category::find($id);
         $data->name = $request->name;
         $data->description = $request->description;

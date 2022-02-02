@@ -36,6 +36,15 @@ class configurationController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = $request->validate([
+            'phone' => 'required',
+            'adminEmail'=>'required|email',
+            'notificationEmail'=>'required|email',
+        ], [
+            'phone.required'=>'*Phone no is required',
+            'notificationEmail.required' => '*Email is required',
+            'adminEmail.required' => '*Admin email is required',
+        ]);
         $data = configuration::insert([
             "phone_no" => $request->phone,
             "admin_email" => $request->adminEmail,

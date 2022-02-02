@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('admin.includes.head')
-
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed ">
 <div class="wrapper">
 @include('admin.includes.nav')
  @include('admin.includes.sidebar')

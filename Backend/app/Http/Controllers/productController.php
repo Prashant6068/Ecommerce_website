@@ -43,31 +43,26 @@ class productController extends Controller
     {
         $validateData = $request->validate([
             "category" => "required",
-         
             "name" => "required",
             "quantity" => "required",
             "price" => "required",
             "sale" => "required",
             "features" => "required",
             "status" => "required",
-            'image' => 'required',
             "status" => "required",
-            
-            
+            'image' => 'required',
+            'image.*'=>'mimes:png,jpg,jpeg',   
         ],
         [
             'category.required' => '*Category is required',
-     
             'name.required' => '*Product name is required',
-
             'quantity.required' => '*Quantity is required',
             'price.required' => '*Price is required',
             'sale.required' => '*Sale is required',
             'features.required' => '*Features is required',
             'status.required' => '*Status is required',
             'image.required' => '*Image is required',
-     
-        
+            'image.mimes'=>"Invalid format",
         ]);
         if ($validateData) {
         $data = Product::create([
@@ -144,6 +139,7 @@ class productController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $data = Product::where('id', $id)->update([
             "name" => $request->name,
             "quantity" => $request->quantity,

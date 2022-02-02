@@ -48,6 +48,15 @@ class userController extends Controller
             "cpass" => "required|same:pass",
             "status" => "required",
             "role" => "required"
+        ], [
+            'fname.required' => '*First name is required',
+            'lname.required' => '*Last name is required',
+            'email.required'=>'*Email is required',
+            'pass.required' => '*Password is required',
+            'cpass.required' => '*Re-enter password',
+            'status.required'=>'*Status is required',
+            'role.required' => '*Select role'
+
         ]);
         if ($validateData) {
             $password = $request->pass;
@@ -59,7 +68,7 @@ class userController extends Controller
                 "role_type" => $request->role,
                 "status" => $request->status,
             ]);
-            return redirect('/users')->with('msg',"Data inserted succesfully");
+            return redirect('/users')->with('msg', "Data inserted succesfully");
         }
     }
 
@@ -103,7 +112,7 @@ class userController extends Controller
             "role_type" => $request->role,
             "status" => $request->status,
         ]);
-        return redirect('/users')->with('msg',"Data updated succesfully");
+        return redirect('/users')->with('msg', "Data updated succesfully");
     }
 
     /**
@@ -115,6 +124,6 @@ class userController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect('/users')->with('err',"Data deleted succesfully");
+        return redirect('/users')->with('err', "Data deleted succesfully");
     }
 }

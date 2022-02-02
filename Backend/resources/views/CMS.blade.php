@@ -43,7 +43,7 @@
             @endif
         </div>
         <div class="text-center mt-2">
-            <input type="submit" class="btn btn-dark" value="submit" />
+            <input type="submit" class="btn btn-dark btn-block" value="submit" />
         </div>
     </form>
 </div>

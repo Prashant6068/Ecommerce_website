@@ -37,11 +37,15 @@ class contactController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            "name" => 'required|string',
-            "phone" => "required|string",
+            "name" => 'required',
+            "phone" => "required",
             "email" => "required|email|",
             "message" => "required|min:6",
-
+        ],[
+            'name.required' => '*Name is required',
+            'email.required' => '*Email is required',
+            'contact.required' => '*Contact number is required',
+            'message.required' => '*Message is required', 
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors());
