@@ -41,31 +41,32 @@ class bannerController extends Controller
                 "caption" => "required",
 
 
-                'image' => 'required',
+                'image' => 'required|mimes:png,jpg,jpeg',
             ],
             [
                 'caption.required' => '*Caption is required',
 
                 'image.required' => '*Image is required',
+                'image.mimes' => '*Only jpg,png files are allowed'
 
 
             ]
         );
-        if ($validateData) {
-            if ($request->hasFile('image')) {
-                $images = $request->file('image');
-                foreach ($images as $i) {
-                    $name = rand() . $i->getClientOriginalName();
-                    $i->move(public_path('uploads/'), $name);
-                    Banner::insert([
-                        "image_path" => $name,
-                        "caption" => $request->caption
-                    ]);
-                }
-                return redirect('/banners')->with("msg", "Data inserted successfully");
-            }
+
+        if ($request->hasFile('image')) {
+            $images = $request->file('image');
+
+            $name = rand() . $images->getClientOriginalName();
+            $images->move(public_path('uploads/'), $name);
+            Banner::insert([
+                "image_path" => $name,
+                "caption" => $request->caption
+            ]);
+
+            return redirect('/banners')->with("msg", "Data inserted successfully");
         }
     }
+
     /**
      * Display the specified resource.
      *

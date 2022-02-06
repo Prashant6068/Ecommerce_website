@@ -41,9 +41,7 @@
                 <p>Web ID: {{ cart.product_id }}</p>
               </td>
               <td class="cart_price">
-                <p>
-                  <i class="fa fa-inr" aria-hidden="true"></i>{{ cart.price }}
-                </p>
+                <p>{{ cart.price }}</p>
               </td>
               <td class="cart_quantity">
                 <div class="cart_quantity_button">
@@ -73,8 +71,8 @@
                     <td>
                       <span
                         ><i class="fa fa-inr" aria-hidden="true"></i
-                        >{{ this.$store.getters.amount }}</span
-                      >
+                        >{{ this.$store.getters.amount }}
+                      </span>
                     </td>
                   </tr>
                 </table>
@@ -84,12 +82,13 @@
         </table>
       </div>
       <div class="shopper-informations">
+        
         <div class="row">
-          <div class="col-sm-9 clearfix">
+          <div class="col-sm-8 clearfix">
             <div class="bill-to">
-              <p>Bill To</p>
-              <div class="form-one">
-                <!-- form for user address -->
+            
+              <div class="form-one one">
+                <!-- form for user address --> <p>Bill To</p>
                 <form @submit.prevent="payment()">
                   <input
                     type="email"
@@ -108,7 +107,7 @@
                       >*Email is required</span
                     >
                     <span v-if="!$v.user.email.email">*Email is invalid</span>
-                  </div>
+                  </div><br>
                   <input
                     type="text"
                     v-model="user.firstName"
@@ -126,7 +125,7 @@
                   >
                     <span class="">*Firstname is required </span>
                   </div>
-
+<br>
                   <input
                     type="text"
                     v-model="user.lastName"
@@ -144,6 +143,7 @@
                   >
                     <span class="">*lastname is required </span>
                   </div>
+                  <br>
                   <input
                     v-model="user.address"
                     name="address"
@@ -161,7 +161,7 @@
                   >
                     <span class="">*Address is required </span>
                   </div>
-
+<br>
                   <input
                     type="text"
                     v-model="user.postalcode"
@@ -179,7 +179,7 @@
                   >
                     <span class="">*postalcode is required </span>
                   </div>
-
+<br>
                   <input
                     type="number"
                     v-model="user.phone"
@@ -195,7 +195,7 @@
                   >
                     <span class="">*Mobile number is required </span>
                   </div>
-                  <br />
+                  <br /><br>
                   <div class="payment-options">
                     <span>
                       <label
@@ -210,13 +210,24 @@
                       >
                     </span>
                     <div v-show="pay == 'online'">
-                      <Paypal />  
+                      <Paypal />
                     </div>
-                    <!-- call the paypal component -->
                     <br />
-                    <button class="btn btn-primary">Submit</button>
+                    <div class="row">
+                      <div class="col-sm-10">
+                        <div
+                          v-if="loading"
+                          class="spinner-border spinner-border-sm"
+                        >
+                          <h2 class="text-warning"><i class="fa fa-spinner"></i>&nbsp;&nbsp;Please Wait...</h2>
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <button class="btn btn-primary btn-block">Submit</button>
                   </div>
                 </form>
+            
               </div>
             </div>
           </div>
@@ -238,11 +249,12 @@ export default {
     return {
       details: undefined,
       code: null,
+      orderId: Math.floor(Math.random() * 90000) + 10000,
       email_id: localStorage.getItem("uid"),
+      paidAmount: undefined,
+      loading: false,
       server: "http://127.0.0.1:8000/uploads/",
       pay: "COD",
-      orderId: Math.floor(Math.random() * 90000) + 10000,
-
       user: {
         firstName: "",
         lastName: "",
@@ -273,6 +285,7 @@ export default {
       if (this.$v.$invalid) {
         return;
       } else {
+        this.loading = true;
         let array = this.details;
         array.forEach((item) => {
           let obj = {
@@ -283,9 +296,9 @@ export default {
             product_price: item.price,
             amount: item.price * item.quantity,
             coupon_code: this.$store.getters.coupon,
+            payment_mode: this.pay,
             orderId: this.orderId,
             paidAmount: this.$store.getters.amount,
-            payment_mode: this.pay,
           };
           userOrder(obj).then((res) => {
             console.log(res.data);
@@ -299,12 +312,18 @@ export default {
           postal: this.user.postalcode,
           phone: this.user.phone,
         };
-        userAddress(formData).then((res) => {
-          localStorage.removeItem("mycart");
-          this.$router.push("/myorders");
-          console.log(res.data);
-          window.location.reload();
-        });
+        userAddress(formData)
+          .then((res) => {
+            localStorage.removeItem("mycart");
+            this.$router.push("/myorders");
+            console.log(res.data);
+            window.location.reload();
+          })
+          .catch((err) => {
+            this.$swal("Unauthorized User", "Try Again Later !", "error");
+            console.log("Something Wrong " + err);
+          })
+          .finally(() => (this.loading = false));
       }
     },
   },
@@ -314,7 +333,7 @@ export default {
   },
   computed: {
     total() {
-      return this.$store.getters.amount;  //it will get updated
+      return this.$store.getters.amount;
     },
     coupon() {
       return this.$store.getters.coupon;
@@ -322,9 +341,16 @@ export default {
   },
 };
 </script>
-
 <style>
-.clearfix {
-  margin-left: 380px;
+
+
+.one{
+  
+ padding-right: 30px;
+ padding-left: 40px;
+ padding-top: 20px;
+ padding-bottom: 40px;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 </style>

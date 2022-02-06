@@ -18,7 +18,7 @@
 
         <div class="col-md-9">
           <h1 class="text-center text-warning">{{ details.title }}</h1>
-          <p>{{ details.description }}</p>
+          <h4>{{ details.description }}</h4>
         </div>
       </div>
     </div>

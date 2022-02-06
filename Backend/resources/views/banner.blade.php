@@ -26,7 +26,7 @@
         <h2 class="text-center text-dark">Add Images</h2>
         @csrf()
         <div class="form-group ">
-            Image <input type="file" class="form-control" name="image[]" multiple>
+            Image <input type="file" class="form-control" name="image">
             @if($errors->has('image'))
             <label class="text-danger">{{$errors->first('image')}}</label>
             @endif

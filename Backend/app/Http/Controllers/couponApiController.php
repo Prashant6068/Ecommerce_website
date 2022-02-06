@@ -14,7 +14,7 @@ class couponApiController extends Controller
      */
     public function index()
     {
-        $data = Coupon::all();
+        $data = Coupon::where('status',1)->get();
         return response()->json(["coupons" => $data]);
     }
 
